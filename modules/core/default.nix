@@ -1,0 +1,19 @@
+{
+  imports = [
+    ./audio.nix
+    ./bluetooth.nix
+    ./boot.nix
+    ./fonts.nix
+    ./flatpak.nix
+    ./home-manager.nix
+    ./hyprland.nix
+    ./network.nix
+    ./nix.nix
+    ./nh.nix
+    ./nvidia.nix
+    ./steam.nix
+    ./timezone.nix
+    ./user.nix
+    ./zram.nix
+  ];
+}
