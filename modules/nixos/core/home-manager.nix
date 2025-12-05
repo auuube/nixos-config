@@ -1,4 +1,10 @@
-{ inputs, user, ... }:
+{
+  inputs,
+  user,
+  homeStateVersion,
+  listDir,
+  ...
+}:
 
 {
   # home-manager nixos module
@@ -8,7 +14,12 @@
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs user; };
     users.${user} = {
-      imports = (inputs.import-tree ../home);
+      imports = listDir ../../home;
+      home = {
+        username = "${user}";
+        homeDirectory = "/home/${user}";
+        stateVersion = homeStateVersion;
+      };
     };
   };
 }

@@ -1,6 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
-    
+
     ###################
     ### MY PROGRAMS ###
     ###################
@@ -17,7 +17,7 @@
     "$mainMod" = "SUPER";
 
     bind = [
-      
+
       "$mainMod, Q, killactive,"
       "$mainMod, V, togglefloating,"
       "$mainMod, P, pseudo," # dwindle
@@ -25,7 +25,7 @@
       "$mainMod, F, fullscreen"
 
       # app launch
-      "$mainMod, RETURN, exec, $terminal"
+      "$mainMod, ENTER, exec, $terminal"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, B, exec, $browser"
       "$mainMod, SPACE, exec, $menu"

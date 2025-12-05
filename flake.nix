@@ -8,25 +8,22 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    haumea = {
+      url = "github:nix-community/haumea/v0.2.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    import-tree.url = "github:vic/import-tree";
-    flake-parts.url = "github:hercules-ci/flake-parts";
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
-
     awww.url = "git+https://codeberg.org/LGFae/awww";
     matugen.url = "github:/InioX/Matugen";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      home-manager,
-      ...
-    }:
+    inputs@{ self, nixpkgs, ... }:
     let
       system = "x86_64-linux";
+      homeStateVersion = "25.05";
       user = "aime";
       hosts = [
         {
@@ -34,6 +31,20 @@
           stateVersion = "25.05";
         }
       ];
+
+      # haumea
+      listDir =
+        path:
+        let
+          tree = inputs.haumea.lib.load {
+            src = path;
+            loader = inputs.haumea.lib.loaders.path;
+          };
+          flatten =
+            attrs:
+            builtins.concatMap (v: if builtins.isAttrs v then flatten v else [ v ]) (builtins.attrValues attrs);
+        in
+        flatten tree;
 
       makeSystem =
         { hostname, stateVersion }:
@@ -45,12 +56,14 @@
               hostname
               user
               stateVersion
+              homeStateVersion
+              listDir
               ;
           };
 
           modules = [
-            ./hosts/${hostname}
-            (inputs.import-tree ./modules/core)
+            { imports = (listDir ./modules/nixos/hosts/${hostname}); }
+            { imports = (listDir ./modules/nixos/core); }
           ];
         };
     in
