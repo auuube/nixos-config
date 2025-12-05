@@ -52,6 +52,7 @@
     jre25_minimal
     nodejs
     gcc
+    glib
     nixd
     nil
     nixfmt
