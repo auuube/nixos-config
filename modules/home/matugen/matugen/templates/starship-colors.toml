@@ -16,7 +16,7 @@ color7 = '{{colors.surface.default.hex}}'
 color8 = '{{colors.primary.default.hex}}'
 color9 = '{{colors.tertiary.default.hex}}'
 
-# Prompt symbols 
+# Prompt symbols
 [character]
 success_symbol = "[🞈](color9 bold)"
 error_symbol = "[🞈](@{error})"

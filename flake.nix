@@ -17,6 +17,7 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
     matugen.url = "github:/InioX/Matugen";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =
@@ -62,20 +63,19 @@
           };
 
           modules = [
-            { imports = (listDir ./modules/nixos/hosts/${hostname}); }
-            { imports = (listDir ./modules/nixos/core); }
+            { imports = (listDir ./hosts/${hostname}); }
+            { imports = (listDir ./modules/core); }
           ];
         };
     in
     {
-      nixosConfigurations = nixpkgs.lib.foldl' (
-        configs: host:
-        configs
-        // {
-          "${host.hostname}" = makeSystem {
+      nixosConfigurations = nixpkgs.lib.listToAttrs (
+        map (host: {
+          name = host.hostname;
+          value = makeSystem {
             inherit (host) hostname stateVersion;
           };
-        }
-      ) { } hosts;
+        }) hosts
+      );
     };
 }

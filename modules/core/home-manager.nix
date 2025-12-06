@@ -15,7 +15,7 @@
     backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs user; };
     users.${user} = {
-      imports = listDir ../../home;
+      imports = (listDir ../home);
       home = {
         username = "${user}";
         homeDirectory = "/home/${user}";
