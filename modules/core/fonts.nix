@@ -23,7 +23,7 @@
       defaultFonts = {
         serif = [ "Noto Serif" ];
         sansSerif = [
-          "Inter"
+          "Inter Display"
           "Noto Sans"
           "Noto Sans Thai"
         ];
