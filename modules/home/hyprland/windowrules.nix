@@ -1,7 +1,7 @@
 {
   wayland.windowManager.hyprland = {
     settings = {
-      windowrule = [
+      windowrule2 = [
         #"noblur, xwayland:1" # Helps prevent odd borders/shadows for xwayland apps
         # downside it can impact other xwayland apps
         # This rule is a template for a more targeted approach
@@ -34,29 +34,8 @@
         "tag +settings, class:(.blueman-manager-wrapped)"
         "tag +settings, class:(nwg-displays)"
         "move 72% 7%,title:^(Picture-in-Picture)$"
-        # qs-keybinds floating viewer
-        "float, title:^(Hyprland Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration)$"
-        "center, title:^(Hyprland Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration)$"
-        "size 55% 66%, title:^(Hyprland Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration)$"
-        # qs-cheatsheets floating viewer
-        "float, title:^(Cheatsheets Viewer)$"
-        "center, title:^(Cheatsheets Viewer)$"
-        "size 65% 60%, title:^(Cheatsheets Viewer)$"
         "center, class:^([Ff]erdium)$"
         "float, class:^([Ww]aypaper)$"
-        "float, class:^(org\\.qt-project\\.qml)$, title:^(Wallpapers)$"
-        "float, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
-        "center, class:^(org\\.qt-project\\.qml)$, title:^(Video Wallpapers)$"
-        "float, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
-        "center, class:^(org\\.qt-project\\.qml)$, title:^(qs-wlogout)$"
-        "float, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
-        "center, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
-        "noshadow, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
-        "noblur, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
-        "rounding 12, class:^(org\\.qt-project\\.qml)$, title:^(Panels)$"
-        "float, title:^(Hyprland Keybinds|Niri Keybinds|BSPWM Keybinds|i3 Keybinds|Sway Keybinds|DWM Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration|Cheatsheets Viewer|Documentation Viewer)$"
-        "center, title:^(Hyprland Keybinds|Niri Keybinds|BSPWM Keybinds|i3 Keybinds|Sway Keybinds|DWM Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration|Cheatsheets Viewer|Documentation Viewer)$"
-        "size 55% 66%, title:^(Hyprland Keybinds|Niri Keybinds|BSPWM Keybinds|i3 Keybinds|Sway Keybinds|DWM Keybinds|Emacs Leader Keybinds|Kitty Configuration|WezTerm Configuration|Ghostty Configuration|Yazi Configuration|Cheatsheets Viewer|Documentation Viewer)$"
         "center, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
         "center, class:([Tt]hunar), title:negative:(.*[Tt]hunar.*)"
         "center, title:^(Authentication Required)$"
@@ -83,7 +62,7 @@
         "opacity 0.9 0.8, tag:projects*"
         "opacity 0.94 0.86, tag:im*"
         "opacity 0.9 0.8, tag:file-manager*"
-        # "opacity 1.0 0.9, tag:terminal*"
+        "opacity 0.8 0.7, tag:terminal*"
         "opacity 0.8 0.7, tag:settings*"
         "opacity 0.8 0.7, class:^(gedit|org.gnome.TextEditor|mousepad)$"
         "opacity 0.9 0.8, class:^(seahorse)$ # gnome-keyring gui"
@@ -92,9 +71,6 @@
         "keepaspectratio, title:^(Picture-in-Picture)$"
         "noblur, tag:games*"
         "fullscreen, tag:games*"
-      ];
-      windowrulev2 = [
-
       ];
     };
   };

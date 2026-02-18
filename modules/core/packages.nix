@@ -36,7 +36,6 @@
     ripgrep
     lazygit
     killall
-    cliphist
     unrar
     unzip
     nitch

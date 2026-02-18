@@ -8,7 +8,7 @@
     "$terminal" = "ghostty";
     "$fileManager" = "nautilus";
     "$menu" = "vicinae toggle";
-    "$browser" = "zen";
+    "$browser" = "zen-beta";
 
     ####################
     ### KEY BINDINGS ###
@@ -81,7 +81,7 @@
       "$mainMod SHIFT, S, movetoworkspace, special:magic"
 
       # screenshot
-      "$mainMod SHIFT, C, exec, hyprshot -m region --clipboard-only"
+      "$mainMod SHIFT, C, exec, hyprshot"
     ];
 
     # Move/resize windows with mainMod + LMB/RMB and dragging
@@ -92,20 +92,19 @@
 
     # Laptop multimedia keys for volume and LCD brightness
     bindel = [
-      ",XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-      ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-      ",XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ",XF86AudioMicMute,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      "$mainMod, bracketright, exec, brightnessctl s 10%+"
-      "$mainMod, bracketleft,  exec, brightnessctl s 10%-"
+      ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+      ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      ",XF86MonBrightnessUp, exec, brightnessctl set +5%"
     ];
 
     # Audio playback
     bindl = [
-      ", XF86AudioNext,  exec, playerctl next"
-      ", XF86AudioPause, exec, playerctl play-pause"
-      ", XF86AudioPlay,  exec, playerctl play-pause"
-      ", XF86AudioPrev,  exec, playerctl previous"
+      ",XF86AudioPlay, exec, playerctl play-pause"
+      ",XF86AudioPause, exec, playerctl play-pause"
+      ",XF86AudioNext, exec, playerctl next"
+      ",XF86AudioPrev, exec, playerctl previous"
     ];
   };
 }

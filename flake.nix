@@ -24,12 +24,12 @@
     inputs@{ self, nixpkgs, ... }:
     let
       system = "x86_64-linux";
-      homeStateVersion = "25.05";
+      homeStateVersion = "25.11";
       user = "aime";
       hosts = [
         {
-          hostname = "dawn";
-          stateVersion = "25.05";
+          hostname = "L380";
+          stateVersion = "25.11";
         }
       ];
 

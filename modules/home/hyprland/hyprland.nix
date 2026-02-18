@@ -4,17 +4,14 @@
   home.packages = with pkgs; [
     hyprshot
     hyprpolkitagent
+    wl-clipboard
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     package = null; # use package from the nixos module
     portalPackage = null;
-    systemd = {
-      enable = true;
-      enableXdgAutostart = true;
-      variables = [ "--all" ];
-    };
+    systemd.enable = false; # use uwsm
 
     settings = {
 
@@ -24,7 +21,7 @@
       ### MONITORS ###
       ################
 
-      monitor = ",1920x1080@180hz,auto,1";
+      monitor = ",1366x768@60hz,auto,1";
 
       #####################
       ### LOOK AND FEEL ###

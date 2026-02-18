@@ -1,6 +1,5 @@
 [config.wallpaper]
-command = "awww"
-arguments = ["img"]
+command = "awww img {{ image }}"
 set = true
 
 [templates.gtk3]
