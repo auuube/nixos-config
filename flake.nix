@@ -31,6 +31,10 @@
           hostname = "L380";
           stateVersion = "25.11";
         }
+        {
+          hostname = "dawn";
+          stateVersion = "25.11";
+        }
       ];
 
       # haumea

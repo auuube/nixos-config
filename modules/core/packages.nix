@@ -23,6 +23,7 @@
     vicinae
     nautilus
     loupe
+    celluloid
     vesktop
     prismlauncher
     zed-editor
@@ -34,6 +35,7 @@
     # cli utils
     fzf
     ripgrep
+    yazi
     lazygit
     killall
     unrar
