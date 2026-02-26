@@ -81,7 +81,7 @@
       "$mainMod SHIFT, S, movetoworkspace, special:magic"
 
       # screenshot
-      "$mainMod SHIFT, C, exec, hyprshot"
+      "$mainMod SHIFT, C, exec, hyprshot -m region --clipboard-only"
     ];
 
     # Move/resize windows with mainMod + LMB/RMB and dragging

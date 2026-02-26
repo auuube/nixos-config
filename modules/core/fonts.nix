@@ -8,7 +8,6 @@
       roboto
       roboto-mono
       dejavu_fonts
-      jetbrains-mono
       nerd-fonts.jetbrains-mono
       noto-fonts
       noto-fonts-cjk-sans

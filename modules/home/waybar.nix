@@ -16,10 +16,10 @@
         ];
         modules-center = [ "clock" ];
         modules-right = [
+          "tray"
           "network"
           "pulseaudio"
           "battery"
-          "tray"
         ];
 
         "hyprland/workspaces" = {

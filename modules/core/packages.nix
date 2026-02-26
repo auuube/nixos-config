@@ -50,7 +50,7 @@
     playerctl
 
     # lang
-    jre25_minimal
+    javaPackages.compiler.temurin-bin.jre-25
     nodejs
     gcc
     glib
