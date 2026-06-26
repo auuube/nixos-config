@@ -1,8 +1,8 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
-  home.packages = [
-    inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
+  home.packages = with pkgs; [
+    matugen
   ];
   xdg.configFile."matugen".source = ./matugen;
 }

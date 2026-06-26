@@ -30,7 +30,6 @@
 
     # flake packages
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
 
     # cli utils
     fzf

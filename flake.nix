@@ -14,8 +14,6 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
-    awww.url = "git+https://codeberg.org/LGFae/awww";
-    matugen.url = "github:/InioX/Matugen";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
@@ -24,16 +22,16 @@
     inputs@{ self, nixpkgs, ... }:
     let
       system = "x86_64-linux";
-      homeStateVersion = "25.11";
+      homeStateVersion = "26.05";
       user = "aime";
       hosts = [
         {
           hostname = "L380";
-          stateVersion = "25.11";
+          stateVersion = "26.05";
         }
         {
           hostname = "dawn";
-          stateVersion = "25.11";
+          stateVersion = "26.05";
         }
       ];
 
