@@ -1,8 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
   gtk = {
     enable = true;
+    theme = {
+      name = "adw-gtk3";
+      package = pkgs.adw-gtk3;
+    };
     iconTheme = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
@@ -15,13 +19,8 @@
     '';
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-  };
-
   home.pointerCursor = {
+    enable = true;
     name = "DMZ-Black";
     package = pkgs.vanilla-dmz;
     size = 24;

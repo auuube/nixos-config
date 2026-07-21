@@ -10,7 +10,6 @@
     {
       enable = true;
       enabledExtensions = with spicePkgs.extensions; [
-        beautifulLyrics
         volumePercentage
       ];
       theme = spicePkgs.themes.text;

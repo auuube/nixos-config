@@ -2,13 +2,12 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
     };
     loader.limine.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    plymouth.enable = true;
 
     # Appimage Support
     binfmt.registrations.appimage = {

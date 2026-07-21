@@ -21,7 +21,7 @@
       "$mainMod, Q, killactive,"
       "$mainMod, V, togglefloating,"
       "$mainMod, P, pseudo," # dwindle
-      "$mainMod, J, togglesplit," # dwindle
+      "$mainMod, J, layoutmsg, togglesplit" # dwindle
       "$mainMod, F, fullscreen"
 
       # app launch

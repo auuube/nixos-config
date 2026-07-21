@@ -26,7 +26,7 @@
     celluloid
     vesktop
     prismlauncher
-    zed-editor
+    code-cursor
 
     # flake packages
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -42,6 +42,7 @@
     nitch
     cmatrix
     spotify-player
+    opencode
 
     # ctl
     brightnessctl
@@ -49,12 +50,11 @@
     playerctl
 
     # lang
-    javaPackages.compiler.temurin-bin.jre-25
+    javaPackages.compiler.temurin-bin.jre-26
     nodejs
     gcc
     glib
     nixd
-    nil
     nixfmt
   ];
 }
