@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, ... }:
 
 {
   gtk = {
@@ -11,12 +11,6 @@
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
     };
-    gtk3.extraCss = ''
-      @import 'colors.css';
-    '';
-    gtk4.extraCss = ''
-      @import 'colors.css';
-    '';
   };
 
   home.pointerCursor = {

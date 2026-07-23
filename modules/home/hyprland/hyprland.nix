@@ -49,10 +49,6 @@
         gaps_in = 4;
         gaps_out = 5;
         border_size = 2;
-        resize_on_border = false;
-
-        "col.active_border" = "$primary $secondary 45deg";
-        "col.inactive_border" = "rgba(4d5d69aa)";
       };
 
       dwindle = {
@@ -72,7 +68,6 @@
           enabled = true;
           range = 4;
           render_power = 3;
-          color = "rgba(ee1a1a1a)";
         };
       };
 
@@ -81,19 +76,15 @@
       };
 
       misc = {
-        layers_hog_keyboard_focus = true;
         initial_workspace_tracking = 0;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
-        enable_swallow = false;
         vrr = 2; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
         # Screen flashing to black momentarily or going black when app is fullscreen
         # Try setting vrr to 0
 
-        #  Application not responding (ANR) settings
-        enable_anr_dialog = true;
         anr_missed_pings = 15;
       };
 
@@ -102,7 +93,7 @@
         force_zero_scaling = true;
       };
 
-      "source" = "colors.conf"; # source matugen colors
+      source = "noctalia.conf"; # source noctalia colors
     };
   };
 }

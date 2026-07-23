@@ -24,10 +24,8 @@
     nautilus
     loupe
     celluloid
-    vesktop
+    equibop
     prismlauncher
-    code-cursor
-
     # flake packages
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
@@ -51,7 +49,7 @@
 
     # lang
     javaPackages.compiler.temurin-bin.jre-26
-    nodejs
+    nodejs_latest
     gcc
     glib
     nixd

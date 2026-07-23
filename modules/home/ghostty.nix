@@ -3,7 +3,7 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
-      theme = "Mellow";
+      theme = "noctalia";
       font-size = 11;
       background-opacity = 0.8;
       background-blur = 30;
@@ -16,8 +16,8 @@
       confirm-close-surface = false;
       adjust-cursor-thickness = 1;
       mouse-hide-while-typing = true;
-      window-padding-x = 4;
-      window-padding-y = 6;
+      window-padding-x = 14;
+      window-padding-y = 14;
       window-padding-balance = true;
       title = "GhosTTY";
       gtk-single-instance = true;

@@ -1,7 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
     animations = {
-      enabled = true;
       # Credits: End4
       # Curves (Cubic Bezier)
       bezier = [

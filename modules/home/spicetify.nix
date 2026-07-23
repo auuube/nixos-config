@@ -11,7 +11,7 @@
       enable = true;
       enabledExtensions = with spicePkgs.extensions; [
         volumePercentage
+        spicyLyrics
       ];
-      theme = spicePkgs.themes.text;
     };
 }
