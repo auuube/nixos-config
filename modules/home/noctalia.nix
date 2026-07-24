@@ -8,6 +8,63 @@
     systemd.enable = true;
     settings = {
       launch_apps_as_systemd_services = true;
+
+      config_version = 2;
+
+      bar.default = {
+        start = [ "workspaces" ];
+        end = [
+          "tray"
+          "network"
+          "bluetooth"
+          "volume"
+          "battery"
+          "notifications"
+          "control-center"
+          "session"
+        ];
+      };
+
+      idle = {
+        behavior_order = [
+          "lock"
+          "screen-off"
+          "lock-and-suspend"
+        ];
+        behavior = {
+          lock = {
+            action = "lock";
+            enabled = true;
+            timeout = 600.0;
+          };
+          "lock-and-suspend" = {
+            action = "lock_and_suspend";
+            enabled = false;
+            timeout = 900.0;
+          };
+          screen-off = {
+            action = "screen_off";
+            enabled = true;
+            timeout = 660.0;
+          };
+        };
+      };
+
+      location.auto_locate = true;
+
+      theme = {
+        source = "wallpaper";
+        templates = {
+          builtin_ids = [
+            "gtk3"
+            "gtk4"
+            "ghostty"
+            "hyprland"
+            "starship"
+          ];
+          community_ids = [ "vicinae" ];
+        };
+      };
     };
   };
 }

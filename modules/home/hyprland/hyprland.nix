@@ -19,7 +19,7 @@
       ### MONITORS ###
       ################
 
-      monitor = ",1920x1080@180hz,auto,1";
+      monitor = ",preferred,auto,1";
 
       #############
       ### INPUT ###

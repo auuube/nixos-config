@@ -11,9 +11,9 @@
       defaultEditor = true;
     };
 
+    nix-ld.enable = true;
     dconf.enable = true;
     seahorse.enable = true;
-    hyprlock.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -26,6 +26,7 @@
     celluloid
     equibop
     prismlauncher
+
     # flake packages
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
@@ -50,9 +51,12 @@
     # lang
     javaPackages.compiler.temurin-bin.jre-26
     nodejs_latest
+    python3
     gcc
     glib
     nixd
+    deadnix
+    statix
     nixfmt
   ];
 }
