@@ -73,8 +73,8 @@
       "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
 
       # scroll through existing workspaces with mainMod + scroll
-      "$mainMod, mouse_down, workspace, e-1"
-      "$mainMod, mouse_up, workspace, e+1"
+      "$mainMod, mouse_down, workspace, e+1"
+      "$mainMod, mouse_up, workspace, e-1"
 
       # scratchpad
       "$mainMod, S, togglespecialworkspace, magic"

@@ -14,27 +14,39 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
-      extraConfig.pipewire."92-low-latency" = {
-        "context.properties" = {
-          "default.clock.rate" = 48000;
-          "default.clock.quantum" = 256;
-          "default.clock.min-quantum" = 256;
-          "default.clock.max-quantum" = 256;
+
+      extraConfig.pipewire = {
+        "10-defaults" = {
+          "context.properties" = {
+            "default.clock.allowed-rates" = [ 44100 48000 96000 ];
+          };
+          "resample.properties" = {
+            "resample.quality" = 14;
+          };
         };
       };
-      extraConfig.pipewire-pulse."92-low-latency" = {
-        context.modules = [
-          {
-            name = "libpipewire-module-protocol-pulse";
-            args = {
-              pulse.min.req = "256/48000";
-              pulse.default.req = "256/48000";
-              pulse.max.req = "256/48000";
-              pulse.min.quantum = "256/48000";
-              pulse.max.quantum = "256/48000";
-            };
-          }
-        ];
+
+      extraConfig.client = {
+        "10-resample" = {
+          "resample.properties" = {
+            "resample.quality" = 14;
+          };
+        };
+      };
+
+      extraConfig.pipewire-pulse = {
+        "10-defaults" = {
+          "pulse.properties" = {
+            "pulse.min.req" = "1024/48000";
+            "pulse.default.req" = "1024/48000";
+            "pulse.max.req" = "2048/48000";
+            "pulse.min.quantum" = "32/48000";
+            "pulse.max.quantum" = "2048/48000";
+          };
+          "stream.properties" = {
+            "resample.quality" = 14;
+          };
+        };
       };
     };
   };

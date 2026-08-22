@@ -47,6 +47,7 @@
     brightnessctl
     pavucontrol
     playerctl
+    easyeffects
 
     # lang
     javaPackages.compiler.temurin-bin.jre-26
