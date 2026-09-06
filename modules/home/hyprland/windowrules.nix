@@ -5,25 +5,28 @@
       rule = float(true), match:modal:1
       rule = center(true), match:modal:1
 
-      windowrule {
-        name = Resolve
-        match:class = ^(\bresolve\b)$
-        match:xwayland = 1
-        no_blur = on
+      # Layer rules — vicinae launcher is a wlr-layer-shell surface
+      layerrule {
+        name = vicinae-no-animation
+        no_anim = on
+        match:namespace = vicinae
       }
 
+      # ── Tag: file-manager ──
       windowrule {
-        name = Thunar
+        name = File-Managers
         match:class = ^([Tt]hunar|org.gnome.Nautilus|[Pp]cmanfm-qt)$
         tag = +file-manager
       }
 
+      # ── Tag: terminal ──
       windowrule {
         name = Terminals
         match:class = ^(com.mitchellh.ghostty|org.wezfurlong.wezterm|Alacritty|kitty|kitty-dropterm|dropterminal)$
         tag = +terminal
       }
 
+      # ── Tag: browser ──
       windowrule {
         name = Brave-browser
         match:class = ^(Brave-browser(-beta|-dev|-unstable)?)$
@@ -48,6 +51,7 @@
         tag = +browser
       }
 
+      # ── Tag: projects ──
       windowrule {
         name = vscodium
         match:class = ^(codium|codium-url-handler|VSCodium)$
@@ -60,9 +64,10 @@
         tag = +projects
       }
 
+      # ── Tag: im ──
       windowrule {
         name = Discord
-        match:class = ^([Dd]iscord|[Ww]ebCord|[Vv]esktop)$
+        match:class = ^([Dd]iscord|[Ww]ebCord|[Vv]esktop|Equibop)$
         tag = +im
       }
 
@@ -93,6 +98,7 @@
         tag = +im
       }
 
+      # ── Tag: games ──
       windowrule {
         name = gamescope
         match:class = ^(gamescope)$
@@ -105,6 +111,13 @@
         tag = +games
       }
 
+      windowrule {
+        name = PrismLauncher
+        match:class = ^(PrismLauncher)$
+        tag = +games
+      }
+
+      # ── Tag: gamestore ──
       windowrule {
         name = Steam
         match:class = ^([Ss]team)$
@@ -123,6 +136,7 @@
         tag = +gamestore
       }
 
+      # ── Tag: settings ──
       windowrule {
         name = gnome-disks
         match:class = ^(gnome-disks|wihotspot(-gui)?)$
@@ -133,7 +147,6 @@
         name = rofi
         match:class = ^([Rr]ofi)$
         tag = +settings
-        no_blur = off
       }
 
       windowrule {
@@ -153,7 +166,6 @@
         match:class = ^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$
         center = on
         tag = +settings
-        no_blur = off
       }
 
       windowrule {
@@ -178,6 +190,14 @@
         name = nwg-displays
         match:class = (nwg-displays)
         tag = +settings
+      }
+
+      # ── Per-app rules ──
+      windowrule {
+        name = Resolve
+        match:class = ^(\bresolve\b)$
+        match:xwayland = 1
+        no_blur = on
       }
 
       windowrule {
@@ -206,42 +226,20 @@
       }
 
       windowrule {
-        name = IdleInhibit-fullscreen-1
-        match:class = ^(.*)$
-        idle_inhibit = fullscreen
-      }
-
-      windowrule {
-        name = IdleInhibit-fullscreen-2
-        match:title = ^(.*)$
-        idle_inhibit = fullscreen
-      }
-
-      windowrule {
-        name = IdleInhibit-fullscreen-3
-        match:fullscreen = 1
-        idle_inhibit = fullscreen
-      }
-
-      windowrule {
-        name = Settings-Tag
-        match:tag = settings*
-        float = on
-        opacity = 0.8 = 0.7
-        size = 70% = 70%
-        no_blur = off
-      }
-
-      windowrule {
         name = WayPaper
         match:class = ^([Ww]aypaper)$
         float = on
-        no_blur = off
       }
 
       windowrule {
         name = mpv-or-clapper
         match:class = ^(mpv|com.github.rafostar.Clapper)$
+        float = on
+      }
+
+      windowrule {
+        name = Celluloid
+        match:class = ^(io.github.celluloid_player.Celluloid)$
         float = on
       }
 
@@ -260,7 +258,7 @@
       }
 
       windowrule {
-        name = Steam
+        name = Steam-popups
         match:class = ^([Ss]team)$
         match:title = negative:^([Ss]team)$
         float = on
@@ -286,10 +284,20 @@
         float = on
       }
 
+      # ── Generic rules ──
       windowrule {
-        name = Browsers
-        match:tag = browser*
-        opacity = 1.0 = 1.0
+        name = IdleInhibit-fullscreen
+        match:fullscreen = 1
+        idle_inhibit = fullscreen
+      }
+
+      # ── Tag-based effects ──
+      windowrule {
+        name = Settings-Tag
+        match:tag = settings*
+        float = on
+        opacity = 0.8 = 0.7
+        size = 70% = 70%
       }
 
       windowrule {
@@ -314,30 +322,24 @@
         name = Terminals-opacity
         match:tag = terminal*
         opacity = 0.8 = 0.7
-        no_blur = off
       }
 
       windowrule {
-        name = windowrule-77
+        name = Text-Editors
         match:class = ^(gedit|org.gnome.TextEditor|mousepad)$
         opacity = 0.8 = 0.7
       }
 
       windowrule {
-        name = windowrule-78
+        name = Seahorse
         match:class = ^(seahorse)$
         opacity = 0.9 = 0.8
       }
 
       windowrule {
-        name = windowrule-79
+        name = Games
         match:tag = games*
         no_blur = on
-      }
-
-      windowrule {
-        name = windowrule-80
-        match:tag = games*
         fullscreen = on
       }
     '';

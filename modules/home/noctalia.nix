@@ -9,9 +9,10 @@
     settings = {
       launch_apps_as_systemd_services = true;
 
-      config_version = 2;
-
       bar.default = {
+        background_opacity = 0.8;
+        margin_edge = 5;
+        margin_ends = 5;
         start = [ "workspaces" ];
         end = [
           "tray"
@@ -51,6 +52,8 @@
       };
 
       location.auto_locate = true;
+
+      widget.workspaces.style = "minimal";
 
       theme = {
         source = "wallpaper";

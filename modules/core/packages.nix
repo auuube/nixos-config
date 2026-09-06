@@ -42,6 +42,7 @@
     cmatrix
     spotify-player
     opencode
+    claude-code
 
     # ctl
     brightnessctl
