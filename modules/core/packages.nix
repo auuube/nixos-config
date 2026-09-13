@@ -26,6 +26,7 @@
     celluloid
     equibop
     prismlauncher
+    motrix-next
 
     # flake packages
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -41,7 +42,6 @@
     nitch
     cmatrix
     spotify-player
-    opencode
     claude-code
 
     # ctl

@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    hyprshot
     hyprpolkitagent
     wl-clipboard
   ];

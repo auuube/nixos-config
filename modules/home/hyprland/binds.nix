@@ -7,7 +7,7 @@
 
     "$terminal" = "ghostty";
     "$fileManager" = "nautilus";
-    "$menu" = "vicinae toggle";
+    # "$menu" = "vicinae toggle";
     "$browser" = "zen-beta";
 
     ####################
@@ -28,7 +28,7 @@
       "$mainMod, RETURN, exec, $terminal"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, B, exec, $browser"
-      "$mainMod, SPACE, exec, $menu"
+      # "$mainMod, SPACE, exec, $menu"
 
       # moving focus
       "$mainMod, left, movefocus, l"
@@ -81,7 +81,7 @@
       "$mainMod SHIFT, S, movetoworkspace, special:magic"
 
       # screenshot
-      "$mainMod SHIFT, C, exec, hyprshot -m region --clipboard-only"
+      "$mainMod SHIFT, C, exec, noctalia msg screenshot-region"
     ];
 
     # Move/resize windows with mainMod + LMB/RMB and dragging
