@@ -12,6 +12,10 @@
       url = "github:nix-community/haumea/v0.2.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -66,6 +70,7 @@
           };
 
           modules = [
+            { hardware.facter.reportPath = ./hosts/${hostname}/facter.json; }
             { imports = (listDir ./hosts/${hostname}); }
             { imports = (listDir ./modules/core); }
           ];
