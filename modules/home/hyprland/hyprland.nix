@@ -11,88 +11,14 @@
     package = null; # use package from the nixos module
     portalPackage = null;
     systemd.enable = false; # use uwsm
-    configType = "hyprlang";
 
-    settings = {
-      ################
-      ### MONITORS ###
-      ################
-
-      monitor = ",1920x1080@180hz,auto,1";
-
-      #############
-      ### INPUT ###
-      #############
-
-      input = {
-        kb_layout = "us";
-        # kb_variant = colemak;
-        kb_options = "grp:alt_shift_toggle";
-        follow_mouse = 1;
-        sensitivity = 0; # 0 means no modification.
-        accel_profile = "flat";
-
-        touchpad = {
-          natural_scroll = true;
-          disable_while_typing = true;
-          scroll_factor = 0.8;
-        };
-      };
-
-      #####################
-      ### LOOK AND FEEL ###
-      #####################
-
-      general = {
-        layout = "dwindle";
-        gaps_in = 4;
-        gaps_out = 5;
-        border_size = 2;
-      };
-
-      dwindle = {
-        preserve_split = true;
-      };
-
-      decoration = {
-        rounding = 14;
-        active_opacity = 1.0;
-        inactive_opacity = 0.9;
-        blur = {
-          enabled = true;
-          size = 5;
-          passes = 3;
-        };
-        shadow = {
-          enabled = true;
-          range = 4;
-          render_power = 3;
-        };
-      };
-
-      master = {
-        new_status = "master";
-      };
-
-      misc = {
-        initial_workspace_tracking = 0;
-        mouse_move_enables_dpms = true;
-        key_press_enables_dpms = true;
-        disable_hyprland_logo = true;
-        disable_splash_rendering = true;
-        vrr = 2; # Variable Refresh Rate  Might need to set to 0 for NVIDIA/AQ_DRM_DEVICES
-        # Screen flashing to black momentarily or going black when app is fullscreen
-        # Try setting vrr to 0
-
-        anr_missed_pings = 15;
-      };
-
-      # unscale XWayland
-      xwayland = {
-        force_zero_scaling = true;
-      };
-
-      source = "noctalia.conf"; # source noctalia colors
+    extraLuaFiles = {
+      animations = ./lua/animations.lua;
+      binds = ./lua/binds.lua;
+      env = ./lua/env.lua;
+      options = ./lua/options.lua;
+      rules = ./lua/rules.lua;
+      startup = ./lua/startup.lua;
     };
   };
 }
