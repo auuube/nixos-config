@@ -2,7 +2,6 @@
   inputs,
   user,
   homeStateVersion,
-  listDir,
   ...
 }:
 
@@ -13,11 +12,11 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = { inherit inputs user; };
+    extraSpecialArgs = { inherit inputs; };
     users.${user} = {
-      imports = (listDir ../home);
+      imports = [ (inputs.import-tree (inputs.self + "/modules/home")) ];
       home = {
-        username = "${user}";
+        username = user;
         homeDirectory = "/home/${user}";
         stateVersion = homeStateVersion;
       };

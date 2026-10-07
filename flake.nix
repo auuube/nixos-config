@@ -8,26 +8,24 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    haumea = {
-      url = "github:nix-community/haumea/v0.2.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/";
+    import-tree.url = "github:denful/import-tree";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =
-    inputs@{ self, nixpkgs, ... }:
+    inputs@{ nixpkgs, ... }:
     let
       system = "x86_64-linux";
-      homeStateVersion = "26.05";
       user = "aime";
+      homeStateVersion = "26.05";
+
       hosts = [
         {
           hostname = "L380";
@@ -39,24 +37,11 @@
         }
       ];
 
-      # haumea
-      listDir =
-        path:
-        let
-          tree = inputs.haumea.lib.load {
-            src = path;
-            loader = inputs.haumea.lib.loaders.path;
-          };
-          flatten =
-            attrs:
-            builtins.concatMap (v: if builtins.isAttrs v then flatten v else [ v ]) (builtins.attrValues attrs);
-        in
-        flatten tree;
-
       makeSystem =
         { hostname, stateVersion }:
         nixpkgs.lib.nixosSystem {
-          system = system;
+          inherit system;
+
           specialArgs = {
             inherit
               inputs
@@ -64,14 +49,13 @@
               user
               stateVersion
               homeStateVersion
-              listDir
               ;
           };
 
           modules = [
             { hardware.facter.reportPath = ./hosts/${hostname}/facter.json; }
-            { imports = (listDir ./hosts/${hostname}); }
-            { imports = (listDir ./modules/core); }
+            (inputs.import-tree ./hosts/${hostname})
+            (inputs.import-tree ./modules/core)
           ];
         };
     in
@@ -79,9 +63,7 @@
       nixosConfigurations = nixpkgs.lib.listToAttrs (
         map (host: {
           name = host.hostname;
-          value = makeSystem {
-            inherit (host) hostname stateVersion;
-          };
+          value = makeSystem host;
         }) hosts
       );
     };

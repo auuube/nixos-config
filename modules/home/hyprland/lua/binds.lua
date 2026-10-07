@@ -82,4 +82,4 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 -- Noctalia
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
-hl.bind("ALT + Tab", hl.dsp.exec_cmd("noctalia msg window-switcher"))
+hl.bind("ALT + Tab", hl.dsp.exec_cmd("noctalia msg window-switcher hold"))

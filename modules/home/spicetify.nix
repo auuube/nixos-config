@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [ inputs.spicetify-nix.homeManagerModules.spicetify ];
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   programs.spicetify =
     let
