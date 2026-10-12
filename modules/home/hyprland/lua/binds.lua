@@ -17,6 +17,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 
 -- App launch
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
